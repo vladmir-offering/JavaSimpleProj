@@ -58,7 +58,7 @@ jobs:
     - name : Downloading 
       run: sudo apt-get install sshpass -y
     - name : Sshpass  
-      run: sshpass -p $PASSWORD ssh $USER@$IP_SERVER
+      run: sshpass -p$PASSWORD ssh $USER@$IP_SERVER
     - name : Scp copy  
       run: scp -r JavaSimpleProj $USER@$IP_SERVER:/var/www/backend/build
     # JavaSimpleProj - name of project
