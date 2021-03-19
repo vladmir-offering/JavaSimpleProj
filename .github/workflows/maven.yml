@@ -23,5 +23,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: List of files
-      run : ls -la
+      run : |
+       cd target
+       ls -la
       
