@@ -57,7 +57,7 @@ jobs:
             ls 
     - name : Sending to server
       run: |
-        sudo apt-get install sshpass 
+        sudo apt-get install sshpass -y
         sshpass -p $PASSWORD ssh $USER@$IP_SERVER
         scp -r JavaSimpleProj $USER@$IP_SERVER:/var/www/backend/build
     # JavaSimpleProj - name of project
