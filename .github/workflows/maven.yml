@@ -56,7 +56,9 @@ jobs:
             cd ../
             ls 
     - name : Sending to server
-      run: scp -r JavaSimpleProj $USER@$IP_SERVER:/var/www/backend/build
+      run: |
+        scp -r JavaSimpleProj $USER@$IP_SERVER:/var/www/backend/build
+         $PASSWORD
     # JavaSimpleProj - name of project
     #scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER     
     # - name : Downloading artifact to server
