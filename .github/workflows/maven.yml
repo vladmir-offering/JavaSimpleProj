@@ -60,7 +60,7 @@ jobs:
     - name : Sshpass export
       run: |
         export SSHPASS=$PASSWORD 
-        sshpass -e scp -r JavaSimpleProj $USER@$IP_SERVER:/var/www/backend/build
+        sshpass -e scp -o StrictHostKeyChecking=no -r JavaSimpleProj $USER@$IP_SERVER:/var/www/backend/build
     # JavaSimpleProj - name of project
     #scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER     
     # - name : Downloading artifact to server
