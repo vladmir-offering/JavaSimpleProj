@@ -51,17 +51,14 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: my-artifact
-    - name : Making tar
-      shell: bash
-      run: tar -czvf target.tar.gz target
     - name : Sending to server
       uses: appleboy/scp-action@master
       with:
         host: $IP_SERVER
         username: $USER
         password: $PASSWORD
-        source: "target.tar.gz"
-        target: "test.tar.gz"
+        source: "target.zip"
+        target: "test.zip"
       
     #scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER     
     # - name : Downloading artifact to server
