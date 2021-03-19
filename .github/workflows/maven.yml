@@ -58,9 +58,9 @@ jobs:
     - name : Downloading 
       run: sudo apt-get install sshpass -y
     - name : Sshpass export
-      run: export SSHPASS=$PASSWORD 
-    - name : Sshpass send
-      run: sshpass -e scp -r JavaSimpleProj $USER@$IP_SERVER:/var/www/backend/build
+      run: |
+        export SSHPASS=$PASSWORD 
+        sshpass -e scp -r JavaSimpleProj $USER@$IP_SERVER:/var/www/backend/build
     # JavaSimpleProj - name of project
     #scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER     
     # - name : Downloading artifact to server
