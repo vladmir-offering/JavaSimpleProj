@@ -52,7 +52,7 @@ jobs:
       with:
         name: my-artifact
     - name : Sending to server
-      run: sshpass -f $PASSWORD scp -r $USER@$IP_SERVER:/home/$USER my-artifact
+      run: scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER 
     # - name : Downloading artifact to server
     #    shell: bash
     #     run: |
