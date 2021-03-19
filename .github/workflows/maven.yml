@@ -11,7 +11,7 @@ on:
 jobs:
   
   build:
-    name: Display results
+    name: Build Maven app
     runs-on: ubuntu-latest
     steps:
     - name: Git clone our repo
@@ -28,6 +28,7 @@ jobs:
         name: my-artifact
         path: target
   deploy:
+    name: Deploy artifact
     runs-on: ubuntu-latest
     needs: build
     steps:
