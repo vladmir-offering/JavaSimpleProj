@@ -15,7 +15,7 @@
 name: Java CI with Maven
 env: 
   IP_SERVER: ${{ secrets.ip }}
-  USER: ec2-user
+  USER: ${{ secrets.user }}
   PASSWORD: ${{ secrets.key }} # Or as an environment variable
 on:
   push:
@@ -52,8 +52,11 @@ jobs:
       with:
         name: my-artifact
     - name : Sending to server
-      run:
-        scp -i $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER 
+      run: |
+        sudo apt-get install sshpass -y
+        sshpass -p $PASSWORD ssh $USER@$IP_SERVER:/home/$USER 
+        touch helloworld.txt
+    #scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER     
     # - name : Downloading artifact to server
     #    shell: bash
     #     run: |
