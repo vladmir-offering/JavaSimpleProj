@@ -55,13 +55,13 @@ jobs:
       run: |
             cd ../
             ls 
-    - name : Downloading 
+    - name : Downloading
       run: sudo apt-get install sshpass -y
     - name : Sshpass export
       run: |
         cd ../
         export SSHPASS=$PASSWORD 
-        sshpass -e scp -r -o StrictHostKeyChecking=no JavaSimpleProj $USER@$IP_SERVER:/home/$USER/build
+        sshpass -e scp -r -o StrictHostKeyChecking=no JavaSimpleProj $USER@$IP_SERVER:/home/$USER/JavaSimpleProj
     # JavaSimpleProj - name of project
     #scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER     
     # - name : Downloading artifact to server
