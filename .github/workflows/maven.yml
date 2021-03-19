@@ -54,15 +54,15 @@ jobs:
     - name : Making tar
       shell: bash
       run: |
-           tar -czf target target.tar
+           tar -czf target target.tar.gz
     - name : Sending to server
       uses: appleboy/scp-action@master
       with:
         host: $IP_SERVER
         username: $USER
         password: $PASSWORD
-        source: "target.tar"
-        target: "test.tar"
+        source: "target.tar.gz"
+        target: "test.tar.gz"
       
     #scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER     
     # - name : Downloading artifact to server
