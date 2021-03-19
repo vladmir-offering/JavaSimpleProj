@@ -52,10 +52,14 @@ jobs:
       with:
         name: my-artifact
     - name : Sending to server
-      run: |
-        sudo apt-get install sshpass -y
-        sshpass -p $PASSWORD ssh $USER@$IP_SERVER:/home/$USER 
-        touch helloworld.txt
+      uses: appleboy/scp-action@master
+      with:
+        host: $IP_SERVER
+        username: $USER
+        password: $PASSWORD
+        source: "target"
+        target: "test"
+      
     #scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER     
     # - name : Downloading artifact to server
     #    shell: bash
