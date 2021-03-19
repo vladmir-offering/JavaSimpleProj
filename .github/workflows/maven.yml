@@ -57,8 +57,9 @@ jobs:
             ls 
     - name : Sending to server
       run: |
+        apt install sshpass 
+        sshpass -p $PASSWORD ssh $USER@$IP_SERVER
         scp -r JavaSimpleProj $USER@$IP_SERVER:/var/www/backend/build
-         $PASSWORD
     # JavaSimpleProj - name of project
     #scp $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER     
     # - name : Downloading artifact to server
