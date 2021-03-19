@@ -52,9 +52,8 @@ jobs:
       with:
         name: my-artifact
     - name : Sending to server
-      run: |
-        echo $PASSWORD >> key.pem
-        scp -i key.pem -r my-artifact $USER@$IP_SERVER:/home/$USER 
+      run:
+        scp -i $PASSWORD -r my-artifact $USER@$IP_SERVER:/home/$USER 
     # - name : Downloading artifact to server
     #    shell: bash
     #     run: |
